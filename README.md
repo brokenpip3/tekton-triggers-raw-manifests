@@ -29,7 +29,7 @@ spec:
   interval: 10m
   url: https://github.com/brokenpip3/tekton-triggers-raw-manifests
   ref:
-    tag: v0.23.0-2
+    tag: v0.15.0
   ignore: |
     .github/
     hack/
