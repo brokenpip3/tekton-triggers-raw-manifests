@@ -15,17 +15,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: triggers-info
+  name: feature-flags-triggers
   namespace: tekton-pipelines
   labels:
     app.kubernetes.io/instance: default
-    app.kubernetes.io/part-of: tekton-triggers
+    app.kubernetes.io/part-of: tekton-pipelines
 data:
-  # Contains triggers version which can be queried by external
-  # tools such as CLI. Elevated permissions are already given to
-  # this ConfigMap such that even if we don't have access to
-  # other resources in the namespace we still can have access to
-  # this ConfigMap.
-  version: "v0.16.0"
+  # Setting this flag will determine which gated features are enabled.
+  # Acceptable values are "stable" or "alpha".
+  enable-api-fields: "stable"
 
 ---

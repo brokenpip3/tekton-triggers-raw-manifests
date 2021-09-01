@@ -9,11 +9,15 @@ resources:
 - clusterrole-tekton-triggers-aggregate-edit.yaml
 - clusterrole-tekton-triggers-aggregate-view.yaml
 - clusterrole-tekton-triggers-core-interceptors.yaml
+- clusterrole-tekton-triggers-eventlistener-clusterroles.yaml
+- clusterrole-tekton-triggers-eventlistener-roles.yaml
 - clusterrolebinding-tekton-triggers-controller-admin.yaml
 - clusterrolebinding-tekton-triggers-core-interceptors.yaml
 - clusterrolebinding-tekton-triggers-webhook-admin.yaml
+- configmap-config-defaults-triggers.yaml
 - configmap-config-logging-triggers.yaml
 - configmap-config-observability-triggers.yaml
+- configmap-feature-flags-triggers.yaml
 - configmap-triggers-info.yaml
 - customresourcedefinition-clusterinterceptors.triggers.tekton.dev.yaml
 - customresourcedefinition-clustertriggerbindings.triggers.tekton.dev.yaml
