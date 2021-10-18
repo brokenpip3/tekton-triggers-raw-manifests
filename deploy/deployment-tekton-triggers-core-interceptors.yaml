@@ -21,10 +21,10 @@ metadata:
     app.kubernetes.io/name: core-interceptors
     app.kubernetes.io/component: interceptors
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "v0.16.0"
+    app.kubernetes.io/version: "v0.16.1"
     app.kubernetes.io/part-of: tekton-triggers
     # tekton.dev/release value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-    triggers.tekton.dev/release: "v0.16.0"
+    triggers.tekton.dev/release: "v0.16.1"
 spec:
   replicas: 1
   selector:
@@ -39,17 +39,17 @@ spec:
         app.kubernetes.io/name: core-interceptors
         app.kubernetes.io/component: interceptors
         app.kubernetes.io/instance: default
-        app.kubernetes.io/version: "v0.16.0"
+        app.kubernetes.io/version: "v0.16.1"
         app.kubernetes.io/part-of: tekton-triggers
         app: tekton-triggers-core-interceptors
-        triggers.tekton.dev/release: "v0.16.0"
+        triggers.tekton.dev/release: "v0.16.1"
         # version value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-        version: "v0.16.0"
+        version: "v0.16.1"
     spec:
       serviceAccountName: tekton-triggers-core-interceptors
       containers:
         - name: tekton-triggers-core-interceptors
-          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.16.0@sha256:6c7db03e0caf6fab13192b54ececd53926beae759efe9cbe1aa709cd707be687"
+          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.16.1@sha256:d9086af68aaadd35359c516f8effa40f2d1e59bf96c31056feacd6a687a7f569"
           args: ["-logtostderr", "-stderrthreshold", "INFO"]
           env:
             - name: SYSTEM_NAMESPACE

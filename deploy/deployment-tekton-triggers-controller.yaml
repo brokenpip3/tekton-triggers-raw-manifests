@@ -21,10 +21,10 @@ metadata:
     app.kubernetes.io/name: controller
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "v0.16.0"
+    app.kubernetes.io/version: "v0.16.1"
     app.kubernetes.io/part-of: tekton-triggers
     # tekton.dev/release value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-    triggers.tekton.dev/release: "v0.16.0"
+    triggers.tekton.dev/release: "v0.16.1"
 spec:
   replicas: 1
   selector:
@@ -39,18 +39,18 @@ spec:
         app.kubernetes.io/name: controller
         app.kubernetes.io/component: controller
         app.kubernetes.io/instance: default
-        app.kubernetes.io/version: "v0.16.0"
+        app.kubernetes.io/version: "v0.16.1"
         app.kubernetes.io/part-of: tekton-triggers
         app: tekton-triggers-controller
-        triggers.tekton.dev/release: "v0.16.0"
+        triggers.tekton.dev/release: "v0.16.1"
         # version value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-        version: "v0.16.0"
+        version: "v0.16.1"
     spec:
       serviceAccountName: tekton-triggers-controller
       containers:
         - name: tekton-triggers-controller
-          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.16.0@sha256:6d23285b419b29cfe1934fc2d09e680c3deee3f3bebc4e97ba66d140f448ce4d"
-          args: ["-logtostderr", "-stderrthreshold", "INFO", "-el-image", "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.16.0@sha256:97bcbbce4f592c6bf15c8811adf445d028f58ff5b38e24467d30d727dd919638", "-el-port", "8080", "-el-security-context=true", "-el-readtimeout", "5", "-el-writetimeout", "40", "-el-idletimeout", "120", "-el-timeouthandler", "30", "-period-seconds", "10", "-failure-threshold", "1"]
+          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.16.1@sha256:ef5f79dcc8c1962279b95857d34e27d44670990dfb71ac3c481e277f376d9c78"
+          args: ["-logtostderr", "-stderrthreshold", "INFO", "-el-image", "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.16.1@sha256:6e553c9067301509f6d4f71e5d173b42438741c82db524b0b00db994e92c87d0", "-el-port", "8080", "-el-security-context=true", "-el-readtimeout", "5", "-el-writetimeout", "40", "-el-idletimeout", "120", "-el-timeouthandler", "30", "-period-seconds", "10", "-failure-threshold", "1"]
           env:
             - name: SYSTEM_NAMESPACE
               valueFrom:
