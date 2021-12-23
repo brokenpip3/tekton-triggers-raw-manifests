@@ -22,4 +22,7 @@ rules:
     resources: ["podsecuritypolicies"]
     resourceNames: ["tekton-triggers"]
     verbs: ["use"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch"]
 ---
