@@ -21,10 +21,10 @@ metadata:
     app.kubernetes.io/name: core-interceptors
     app.kubernetes.io/component: interceptors
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "v0.19.1"
+    app.kubernetes.io/version: "v0.20.1"
     app.kubernetes.io/part-of: tekton-triggers
     # tekton.dev/release value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-    triggers.tekton.dev/release: "v0.19.1"
+    triggers.tekton.dev/release: "v0.20.1"
 spec:
   replicas: 1
   selector:
@@ -39,17 +39,19 @@ spec:
         app.kubernetes.io/name: core-interceptors
         app.kubernetes.io/component: interceptors
         app.kubernetes.io/instance: default
-        app.kubernetes.io/version: "v0.19.1"
+        app.kubernetes.io/version: "v0.20.1"
         app.kubernetes.io/part-of: tekton-triggers
         app: tekton-triggers-core-interceptors
-        triggers.tekton.dev/release: "v0.19.1"
+        triggers.tekton.dev/release: "v0.20.1"
         # version value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-        version: "v0.19.1"
+        version: "v0.20.1"
     spec:
       serviceAccountName: tekton-triggers-core-interceptors
       containers:
         - name: tekton-triggers-core-interceptors
-          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.19.1@sha256:5ad55bed2a76e5946608cf99ae810977a574446f30d978b04251a4bbfb8445e0"
+          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.20.1@sha256:65a1dbc19056050b0ca1b1a59122e1d90d2c955222ccee5e3987389a76da16ba"
+          ports:
+            - containerPort: 8443
           args: ["-logtostderr", "-stderrthreshold", "INFO"]
           env:
             - name: SYSTEM_NAMESPACE
@@ -62,11 +64,16 @@ spec:
               value: config-observability-triggers
             - name: METRICS_DOMAIN
               value: tekton.dev/triggers
+            # assuming service and deployment names are same always for consistency
+            - name: INTERCEPTOR_TLS_SVC_NAME
+              value: tekton-triggers-core-interceptors
+            - name: INTERCEPTOR_TLS_SECRET_NAME
+              value: tekton-triggers-core-interceptors-certs
           readinessProbe:
             httpGet:
               path: /ready
-              port: 8082
-              scheme: HTTP
+              port: 8443
+              scheme: HTTPS
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 5

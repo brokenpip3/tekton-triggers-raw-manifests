@@ -8,10 +8,12 @@ resources:
 - clusterrole-tekton-triggers-admin.yaml
 - clusterrole-tekton-triggers-aggregate-edit.yaml
 - clusterrole-tekton-triggers-aggregate-view.yaml
+- clusterrole-tekton-triggers-core-interceptors-secrets.yaml
 - clusterrole-tekton-triggers-core-interceptors.yaml
 - clusterrole-tekton-triggers-eventlistener-clusterroles.yaml
 - clusterrole-tekton-triggers-eventlistener-roles.yaml
 - clusterrolebinding-tekton-triggers-controller-admin.yaml
+- clusterrolebinding-tekton-triggers-core-interceptors-secrets.yaml
 - clusterrolebinding-tekton-triggers-core-interceptors.yaml
 - clusterrolebinding-tekton-triggers-webhook-admin.yaml
 - configmap-config-defaults-triggers.yaml
@@ -38,6 +40,7 @@ resources:
 - rolebinding-tekton-triggers-core-interceptors.yaml
 - rolebinding-tekton-triggers-info.yaml
 - rolebinding-tekton-triggers-webhook-admin.yaml
+- secret-tekton-triggers-core-interceptors-certs.yaml
 - secret-triggers-webhook-certs.yaml
 - service-tekton-triggers-controller.yaml
 - service-tekton-triggers-core-interceptors.yaml

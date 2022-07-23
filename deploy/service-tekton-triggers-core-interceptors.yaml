@@ -5,18 +5,17 @@ metadata:
     app.kubernetes.io/name: tekton-triggers-core-interceptors
     app.kubernetes.io/component: interceptors
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "v0.19.1"
+    app.kubernetes.io/version: "v0.20.1"
     app.kubernetes.io/part-of: tekton-triggers
-    triggers.tekton.dev/release: "v0.19.1"
+    triggers.tekton.dev/release: "v0.20.1"
     app: tekton-triggers-core-interceptors
-    version: "v0.19.1"
+    version: "v0.20.1"
   name: tekton-triggers-core-interceptors
   namespace: tekton-pipelines
 spec:
   ports:
-    - name: "http"
-      port: 80
-      targetPort: 8082
+    - name: "https"
+      port: 8443
   selector:
     app.kubernetes.io/name: core-interceptors
     app.kubernetes.io/component: interceptors

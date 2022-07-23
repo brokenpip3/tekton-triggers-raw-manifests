@@ -8,4 +8,5 @@ spec:
       name: tekton-triggers-core-interceptors
       namespace: tekton-pipelines
       path: "bitbucket"
+      port: 8443
 ---

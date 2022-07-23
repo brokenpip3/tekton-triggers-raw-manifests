@@ -8,5 +8,6 @@ spec:
       name: tekton-triggers-core-interceptors
       namespace: tekton-pipelines
       path: "gitlab"
+      port: 8443
 
 ---
