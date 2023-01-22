@@ -24,6 +24,7 @@ resources:
 - customresourcedefinition-clusterinterceptors.triggers.tekton.dev.yaml
 - customresourcedefinition-clustertriggerbindings.triggers.tekton.dev.yaml
 - customresourcedefinition-eventlisteners.triggers.tekton.dev.yaml
+- customresourcedefinition-interceptors.triggers.tekton.dev.yaml
 - customresourcedefinition-triggerbindings.triggers.tekton.dev.yaml
 - customresourcedefinition-triggers.triggers.tekton.dev.yaml
 - customresourcedefinition-triggertemplates.triggers.tekton.dev.yaml

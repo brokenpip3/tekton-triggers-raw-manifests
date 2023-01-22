@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/part-of: tekton-triggers
 rules:
   - apiGroups: ["triggers.tekton.dev"]
-    resources: ["eventlisteners", "triggerbindings", "triggertemplates", "triggers"]
+    resources: ["eventlisteners", "triggerbindings", "interceptors", "triggertemplates", "triggers"]
     verbs: ["get", "list", "watch"]
   - apiGroups: [""]
     resources: ["configmaps"]
@@ -18,10 +18,6 @@ rules:
   - apiGroups: [""]
     resources: ["serviceaccounts"]
     verbs: ["impersonate"]
-  - apiGroups: ["policy"]
-    resources: ["podsecuritypolicies"]
-    resourceNames: ["tekton-triggers"]
-    verbs: ["use"]
   - apiGroups: [""]
     resources: ["events"]
     verbs: ["create", "patch"]
