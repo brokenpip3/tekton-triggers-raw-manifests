@@ -5,6 +5,7 @@ resources:
 - clusterinterceptor-cel.yaml
 - clusterinterceptor-github.yaml
 - clusterinterceptor-gitlab.yaml
+- clusterinterceptor-slack.yaml
 - clusterrole-tekton-triggers-admin.yaml
 - clusterrole-tekton-triggers-aggregate-edit.yaml
 - clusterrole-tekton-triggers-aggregate-view.yaml
