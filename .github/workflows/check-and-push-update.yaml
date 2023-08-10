@@ -1,6 +1,7 @@
 name: check triggers
 
 on:
+  workflow_dispatch:
   schedule:
   - cron: "30 23 * * *"
 
