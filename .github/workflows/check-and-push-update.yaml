@@ -21,7 +21,7 @@ jobs:
         pip install yq
         yq --version
 
-        KUSTOMIZE=3.5.5
+        KUSTOMIZE=5.1.1
         echo "downloading kustomize ${KUSTOMIZE}"
         curl -sL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE}/kustomize_v${KUSTOMIZE}_linux_amd64.tar.gz | \
         tar xz && mv kustomize /usr/local/bin/kustomize
@@ -32,7 +32,7 @@ jobs:
         get_latest_release() {
           curl -s "https://api.github.com/repos/tektoncd/triggers/releases" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'|head -n 1
         }
-        echo "::set-output name=latest_tag::$(get_latest_release)"
+        echo "latest_tag=$(get_latest_release)" >> $GITHUB_OUTPUT
     - name: execute hack
       id: hack
       env:

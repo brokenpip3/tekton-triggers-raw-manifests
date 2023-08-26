@@ -7,6 +7,8 @@
 RELEASE="$1"
 URI=("interceptors" "release")
 
+rm *.yaml #Remove old files
+
 for uri in "${URI[@]}"
 do
   BASEURL="https://storage.googleapis.com/tekton-releases/triggers/previous/${RELEASE}/${uri}.yaml"
@@ -26,4 +28,3 @@ done
 
 rm kustomization.yaml
 kustomize create --autodetect
-
