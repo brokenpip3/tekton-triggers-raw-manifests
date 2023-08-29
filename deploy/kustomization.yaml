@@ -18,6 +18,8 @@ resources:
 - clusterrolebinding-tekton-triggers-core-interceptors.yaml
 - clusterrolebinding-tekton-triggers-webhook-admin.yaml
 - configmap-config-defaults-triggers.yaml
+- configmap-config-leader-election-triggers-controller.yaml
+- configmap-config-leader-election-triggers-webhook.yaml
 - configmap-config-logging-triggers.yaml
 - configmap-config-observability-triggers.yaml
 - configmap-feature-flags-triggers.yaml
