@@ -9,7 +9,7 @@ jobs:
   raw-manifests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -40,7 +40,7 @@ jobs:
       run: |
         cd deploy
         ../hack/new-release.sh ${RELEASE}
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Automated Update to version ${{ steps.lastrelease.outputs.latest_tag }}
         branch: main
