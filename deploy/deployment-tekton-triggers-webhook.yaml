@@ -21,10 +21,10 @@ metadata:
     app.kubernetes.io/name: webhook
     app.kubernetes.io/component: webhook
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "v0.27.0"
+    app.kubernetes.io/version: "v0.28.0"
     app.kubernetes.io/part-of: tekton-triggers
     # tekton.dev/release value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-    triggers.tekton.dev/release: "v0.27.0"
+    triggers.tekton.dev/release: "v0.28.0"
 spec:
   replicas: 1
   selector:
@@ -39,19 +39,19 @@ spec:
         app.kubernetes.io/name: webhook
         app.kubernetes.io/component: webhook
         app.kubernetes.io/instance: default
-        app.kubernetes.io/version: "v0.27.0"
+        app.kubernetes.io/version: "v0.28.0"
         app.kubernetes.io/part-of: tekton-triggers
         app: tekton-triggers-webhook
-        triggers.tekton.dev/release: "v0.27.0"
+        triggers.tekton.dev/release: "v0.28.0"
         # version value replaced with inputs.params.versionTag in triggers/tekton/publish.yaml
-        version: "v0.27.0"
+        version: "v0.28.0"
     spec:
       serviceAccountName: tekton-triggers-webhook
       containers:
         - name: webhook
           # This is the Go import path for the binary that is containerized
           # and substituted here.
-          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.27.0@sha256:61731cd9c808f323c31bea941fd4786151cde3ff290e6c8ba43dda1d99e51c4c"
+          image: "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.28.0@sha256:3f26d120a4ad8a8b45d219977e427f326f7e778439b80063afd6a148e5bc6940"
           env:
             - name: SYSTEM_NAMESPACE
               valueFrom:
@@ -76,6 +76,7 @@ spec:
               containerPort: 8443
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             # User 65532 is the distroless nonroot user ID
             runAsUser: 65532
             runAsGroup: 65532
